@@ -26,48 +26,64 @@ const UserAccountDetails = ({ title }) => (
           <Col>
             <Form>
               <Row form>
-                {/* First Name */}
                 <Col md="6" className="form-group">
-                  <label htmlFor="feFirstName">First Name</label>
+                  <label htmlFor="username">User Name</label>
                   <FormInput
-                    id="feFirstName"
-                    placeholder="First Name"
-                    value="Sierra"
+                    id="username"
+                    placeholder="User Name"
+                    value="Zico"
                     onChange={() => {}}
                   />
                 </Col>
-                {/* Last Name */}
                 <Col md="6" className="form-group">
-                  <label htmlFor="feLastName">Last Name</label>
+                  <label htmlFor="displayName">Display Name</label>
                   <FormInput
-                    id="feLastName"
-                    placeholder="Last Name"
-                    value="Brooks"
+                    id="displayName"
+                    placeholder="Display Name"
+                    value="Mohib"
                     onChange={() => {}}
                   />
                 </Col>
               </Row>
               <Row form>
-                {/* Email */}
                 <Col md="6" className="form-group">
-                  <label htmlFor="feEmail">Email</label>
+                  <label htmlFor="firstName">First Name</label>
+                  <FormInput
+                    id="firstName"
+                    placeholder="First Name"
+                    value="Zico"
+                    onChange={() => {}}
+                  />
+                </Col>
+                <Col md="6" className="form-group">
+                  <label htmlFor="lastName">Last Name</label>
+                  <FormInput
+                    id="lastName"
+                    placeholder="Last Name"
+                    value="Zico"
+                    onChange={() => {}}
+                  />
+                </Col>
+              </Row>
+              <Row form>
+                <Col md="6" className="form-group">
+                  <label htmlFor="Email">Email</label>
                   <FormInput
                     type="email"
-                    id="feEmail"
+                    id="Email"
                     placeholder="Email Address"
-                    value="sierra@example.com"
+                    value="zico@example.com"
                     onChange={() => {}}
                     autoComplete="email"
                   />
                 </Col>
-                {/* Password */}
                 <Col md="6" className="form-group">
                   <label htmlFor="fePassword">Password</label>
                   <FormInput
                     type="password"
                     id="fePassword"
                     placeholder="Password"
-                    value="EX@MPL#P@$$w0RD"
+                    value=""
                     onChange={() => {}}
                     autoComplete="current-password"
                   />
@@ -78,46 +94,38 @@ const UserAccountDetails = ({ title }) => (
                 <FormInput
                   id="feAddress"
                   placeholder="Address"
-                  value="1234 Main St."
+                  value="Bangladesh St. 456"
                   onChange={() => {}}
                 />
               </FormGroup>
               <Row form>
                 {/* City */}
                 <Col md="6" className="form-group">
-                  <label htmlFor="feCity">City</label>
+                  <label htmlFor="city">City</label>
                   <FormInput
-                    id="feCity"
+                    id="city"
                     placeholder="City"
                     onChange={() => {}}
                   />
                 </Col>
-                {/* State */}
                 <Col md="4" className="form-group">
-                  <label htmlFor="feInputState">State</label>
-                  <FormSelect id="feInputState">
+                  <label htmlFor="state">State</label>
+                  <FormSelect id="state">
                     <option>Choose...</option>
                     <option>...</option>
                   </FormSelect>
                 </Col>
-                {/* Zip Code */}
                 <Col md="2" className="form-group">
-                  <label htmlFor="feZipCode">Zip</label>
+                  <label htmlFor="zipcode">Zip</label>
                   <FormInput
-                    id="feZipCode"
+                    id="zipcode"
                     placeholder="Zip"
                     onChange={() => {}}
                   />
                 </Col>
               </Row>
-              <Row form>
-                {/* Description */}
-                <Col md="12" className="form-group">
-                  <label htmlFor="feDescription">Description</label>
-                  <FormTextarea id="feDescription" rows="5" />
-                </Col>
-              </Row>
               <Button theme="accent">Update Account</Button>
+              <Button theme="accent">Cancel</Button>
             </Form>
           </Col>
         </Row>
@@ -127,9 +135,6 @@ const UserAccountDetails = ({ title }) => (
 );
 
 UserAccountDetails.propTypes = {
-  /**
-   * The component's title.
-   */
   title: PropTypes.string
 };
 

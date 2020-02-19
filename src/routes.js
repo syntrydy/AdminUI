@@ -20,6 +20,7 @@ import UmaScopeListPage from "./views/sso/UmaScopeListPage";
 import OpenIdSectorListPage from "./views/sso/OpenIdSectorListPage";
 import CertificatesListPage from "./views/extra/CertificatesListPage";
 import ServerStatusPage from "./views/extra/ServerStatusPage";
+import UserProfilePage from "./views/identities/UserProfilePage";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -143,6 +144,11 @@ export default [
     path: "/logs",
     layout: DefaultLayout,
     component: FileManagerList
+  },
+  {
+    path: "/me",
+    layout: DefaultLayout,
+    component: UserProfilePage
   },
   {
     path: "/header-navigation",
