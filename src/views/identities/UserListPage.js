@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { showUsers } from "../../redux/actions/UiActions";
 import ReactTable from "react-table";
 import {
   Container,
@@ -201,4 +203,9 @@ const UserListPage = () => {
     </Container>
   );
 };
-export default UserListPage;
+function mapStateToProps(state) {
+  return {
+    users: state.users
+  };
+}
+export default connect(mapStateToProps, { showUsers })(UserListPage);
