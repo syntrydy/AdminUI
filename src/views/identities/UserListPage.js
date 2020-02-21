@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { showUsers } from "../../redux/actions/UiActions";
+import { connect } from "react-redux";
 import ReactTable from "react-table";
+import PageTitle from "../../components/common/PageTitle";
+import getGroupsData from "../../data/users-data";
 import {
   Container,
   Row,
@@ -18,10 +21,9 @@ import {
   InputGroupText,
   FormInput
 } from "shards-react";
-import PageTitle from "../../components/common/PageTitle";
-import getGroupsData from "../../data/users-data";
 
 const UserListPage = () => {
+  const { t, i18n } = useTranslation();
   let history = useHistory();
   const [data, setData] = useState(getGroupsData());
   const [pageSize, setPageSize] = useState(5);
@@ -141,7 +143,7 @@ const UserListPage = () => {
     <Container fluid className="main-content-container px-2 pb-4">
       <Row noGutters className="page-header py-1">
         <PageTitle
-          title="USERS"
+          title={t('users.title')}
           subtitle="IDENTITIES"
           className="text-sm-left mb-3"
         />
@@ -208,4 +210,4 @@ function mapStateToProps(state) {
     users: state.users
   };
 }
-export default connect(mapStateToProps, { showUsers })(UserListPage);
+export default UserListPage;

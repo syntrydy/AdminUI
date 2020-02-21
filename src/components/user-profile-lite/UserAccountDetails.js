@@ -11,7 +11,6 @@ import {
   FormGroup,
   FormInput,
   FormSelect,
-  FormTextarea,
   Button
 } from "shards-react";
 

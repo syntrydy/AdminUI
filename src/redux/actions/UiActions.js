@@ -1,33 +1,22 @@
 import * as type from "./ActionType";
 
-export function addUser(state) {
-  return {
-    type: type.ADD_USER,
-    payload: state.user
-  };
-}
-
-export function editUser(state) {
-  return {
-    type: type.EDIT_USER,
-    payload: state.user
-  };
-}
-export function deleteUser(state) {
-  return {
-    type: type.DELETE_USER,
-    payload: state.user
-  };
-}
-export function showUsers(state) {
-  return {
-    type: type.SHOW_USERS
-  };
-}
-
-export function searchUsers(pattern) {
-  return {
-    type: type.DELETE_USER,
-    payload: pattern
-  };
-}
+export const addUser = user => ({
+  type: type.ADD_USER,
+  user
+});
+export const editUser = user => ({
+  type: type.EDIT_USER,
+  user
+});
+export const deleteUser = user => ({
+  type: type.DELETE_USER,
+  user
+});
+export const showUsers = user => ({
+  type: type.SHOW_USERS,
+  user
+});
+export const searchUsers = user => ({
+  type: type.SEARCH_USERS,
+  user
+});
