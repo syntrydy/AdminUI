@@ -1,7 +1,7 @@
 export default function() {
   return [
     {
-      title: "Dashboard",
+      title: "sidemenu.dashboard",
       items: [
         {
           title: "Home",
@@ -15,19 +15,19 @@ export default function() {
       title: "Identities",
       items: [
         {
-          title: "Groups",
+          title: "sidemenu.groups",
           to: "/groups",
           htmlBefore: '<i class="material-icons">people</i>',
           htmlAfter: ""
         },
         {
-          title: "Users",
+          title: "sidemenu.users",
           to: "/users",
           htmlBefore: '<i class="material-icons">supervised_user_circle</i>',
           htmlAfter: ""
         },
         {
-          title: "Attributes",
+          title: "sidemenu.attributes",
           to: "/attributes",
           htmlBefore: '<i class="material-icons">gavel</i>',
           htmlAfter: ""

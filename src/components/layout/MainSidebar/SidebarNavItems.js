@@ -1,9 +1,7 @@
 import React from "react";
 import { Nav } from "shards-react";
-
 import SidebarNavItem from "./SidebarNavItem";
 import { Store } from "../../../flux";
-
 class SidebarNavItems extends React.Component {
   constructor(props) {
     super(props)
