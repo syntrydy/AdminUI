@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { showUsers } from "../../redux/actions/UiActions";
-import { connect } from "react-redux";
 import ReactTable from "react-table";
 import PageTitle from "../../components/common/PageTitle";
 import getGroupsData from "../../data/users-data";
@@ -23,7 +21,7 @@ import {
 } from "shards-react";
 
 const UserListPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t} = useTranslation();
   let history = useHistory();
   const [data, setData] = useState(getGroupsData());
   const [pageSize, setPageSize] = useState(5);
@@ -154,7 +152,7 @@ const UserListPage = () => {
               className="btn-lg"
               onClick={() => handleGoToUserAddPage()}
             >
-              <i class="material-icons">add</i> Add
+              <i className="material-icons">add</i> Add
             </Button>
           </ButtonGroup>
         </Col>

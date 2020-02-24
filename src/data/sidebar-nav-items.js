@@ -4,7 +4,7 @@ export default function() {
       title: "sidemenu.dashboard",
       items: [
         {
-          title: "Home",
+          title: "sidemenu.home",
           to: "/home",
           htmlBefore: '<i class="material-icons">dashboard</i>',
           htmlAfter: ""
@@ -12,7 +12,7 @@ export default function() {
       ]
     },
     {
-      title: "Identities",
+      title: "sidemenu.identities",
       items: [
         {
           title: "sidemenu.groups",
@@ -38,69 +38,69 @@ export default function() {
       title: "SSO",
       items: [
         {
-          title: "OPENID Connect",
+          title: "sidemenu.openid_connect",
           htmlBefore: '<i class="material-icons">control_camera</i>',
           open: false,
           items: [
             {
-              title: "Scopes",
+              title: "sidemenu.scopes",
               to: "/openid_scopes"
             },
             {
-              title: "Clients",
+              title: "sidemenu.clients",
               to: "/openid_clients"
             },
             {
-              title: "Sector identifiers",
+              title: "sidemenu.sectors",
               to: "/openid_sector_identifiers"
             }
           ]
         },
         {
-          title: "SAML",
+          title: "sidemenu.saml",
           htmlBefore: '<i class="material-icons">all_inclusive</i>',
           open: false,
           items: [
             {
-              title: "Trust Relationships",
+              title: "sidemenu.trusts",
               to: "/saml_trusts"
             },
             {
-              title: "SAML Acrs",
+              title: "sidemenu.acrs",
               to: "/saml_acrs"
             }
           ]
         },
         {
-          title: "UMA",
+          title: "sidemenu.uma",
           htmlBefore: '<i class="material-icons">polymer</i>',
           open: false,
           items: [
             {
-              title: "Scopes",
+              title: "sidemenu.scopes",
               to: "/uma_scopes"
             },
             {
-              title: "Resources",
+              title: "sidemenu.resources",
               to: "/uma_ressources"
             }
           ]
         },
         {
-          title: "PASSPORT",
+          title: "sidemenu.passport",
           htmlBefore: '<i class="material-icons">credit_card</i>',
           open: false,
           items: [
             {
-              title: "Providers",
+              title: "sidemenu.providers",
               to: "/password_providers"
             },
             {
-              title: "Basic configuration",
+              title: "sidemenu.basic_config",
               to: "/passport_config"
             },
             {
-              title: "Idp initiated",
+              title: "sidemenu.idp_initiated",
               to: "/passport_idpflow"
             }
           ]
@@ -108,22 +108,22 @@ export default function() {
       ]
     },
     {
-      title: "Extra",
+      title: "sidemenu.extra",
       items: [
         {
-          title: "Server status",
+          title: "sidemenu.server_status",
           to: "/server_status",
           htmlBefore: '<i class="material-icons">settings_input_hdmi</i>',
           htmlAfter: ""
         },
         {
-          title: "View Logs",
+          title: "sidemenu.view_logs",
           to: "/logs",
           htmlBefore: '<i class="material-icons">attach_file</i>',
           htmlAfter: ""
         },
         {
-          title: "Certificates",
+          title: "sidemenu.certificates",
           to: "/certificates",
           htmlBefore: '<i class="material-icons">new_releases</i>',
           htmlAfter: ""

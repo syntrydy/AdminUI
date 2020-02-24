@@ -1,31 +1,44 @@
 {
   "users": {
-    "title": "USERS Gasmyr"
+    "title": "USERS"
   },
   "groups": {
-    "title": "LIST OF GROUPS"
+    "title": "GROUPS"
   },
-  "sidemenu":{
-    "dashboard":"DASHBOARD",
-    "home":"HOME",
-    "users":"USERS",
-    "groups":"GROUPS",
-    "attributes":"ATTRIBUTES",
-    "openid_connect":"OPENID CONNECT",
-    "scopes":"scopes",
-    "clients":"clients",
-    "sectors":"sectors",
-    "saml":"SAML",
-    "uma":"UMA",
-    "passport":"PASSPORT",
-    "resources":"Resources",
-    "providers":"Providers",
-    "basic_config":"Basic configuration",
-    "idp_initiated":"Idp Iniated",
-    "extra":"EXTRA",
-    "server_status":"Server Status",
-    "view_logs":"View Logs",
-    "certificates":"Certificates"
-    
+  "button": {
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "remove": "Remove",
+    "list": "List",
+    "import": "Import",
+    "export": "Export",
+    "download": "Download"
+  },
+  "sidemenu": {
+    "dashboard": "DASHBOARD",
+    "home": "HOME",
+    "users": "USERS",
+    "groups": "GROUPS",
+    "identities": "IDENTITIES",
+    "attributes": "ATTRIBUTES",
+    "openid_connect": "OPENID CONNECT",
+    "scopes": "Scopes",
+    "clients": "Clients",
+    "sectors": "Sectors",
+    "saml": "SAML",
+    "trusts": "Trusts Relationships",
+    "acrs": "Saml Acrs",
+    "uma": "UMA",
+    "passport": "PASSPORT",
+    "resources": "Resources",
+    "providers": "Providers",
+    "basic_config": "Basic configuration",
+    "idp_initiated": "Idp Initiated",
+    "extra": "EXTRA",
+    "server_status": "Server Status",
+    "view_logs": "View Logs",
+    "certificates": "Certificates",
+    "logout": "Logout"
   }
 }

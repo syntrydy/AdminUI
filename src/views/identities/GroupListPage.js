@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ReactTable from "react-table";
 import {
   Container,
@@ -21,6 +22,7 @@ import getGroupsData from "../../data/groups-data";
 
 const GroupListPage = () => {
   let history = useHistory();
+  const { t} = useTranslation();
   const [data, setData] = useState(getGroupsData());
   const [pageSize, setPageSize] = useState(7);
   const [pageSizeOptions, setPageSizeOptions] = useState([
@@ -126,7 +128,7 @@ const GroupListPage = () => {
     <Container fluid className="main-content-container px-2 pb-4">
       <Row noGutters className="page-header py-1">
         <PageTitle
-          title="GROUPS"
+          title={t('groups.title')}
           subtitle="IDENTITIES"
           className="text-sm-left mb-3"
         />

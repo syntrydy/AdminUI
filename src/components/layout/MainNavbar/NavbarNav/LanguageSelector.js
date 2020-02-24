@@ -1,44 +1,35 @@
-import React, { Component } from "react";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Collapse,
-  NavItem,
-  NavLink
-} from "shards-react";
+import React, { useState } from "react";
+import i18n from "../../../../i18n";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import { NavItem } from "shards-react";
 
-export class LanguageSelector extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      visible: false
-    };
-
-    this.toggleLangSelector = this.toggleLangSelector.bind(this);
+const LanguageSelector = () => {
+  const [currentLang, setLang] = useState("en");
+  function changeLanguage(lng) {
+    setLang(lng);
+    i18n.changeLanguage(lng);
   }
-
-  toggleLangSelector() {
-    this.setState({
-      visible: !this.state.visible
-    });
-  }
-  render() {
-    return (
-      <NavItem tag={Dropdown} caret toggle={this.toggleLangSelector}>
-        <DropdownToggle caret tag={NavLink} className="text-nowrap px-3">
-          <span className="d-none d-md-inline-block">Language</span>
-        </DropdownToggle>
-        <Collapse tag={DropdownMenu} right small open={this.state.visible}>
-          <DropdownItem>English</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>French</DropdownItem>
-        </Collapse>
-      </NavItem>
-    );
-  }
-}
+  return (
+    <NavItem>
+      <DropdownButton
+        style={{
+          "marginTop": "20px",
+          "marginLeft": "10px",
+          "backgroundColor": "red !important"
+        }}
+        id="dropdown-item-button"
+        title={currentLang}
+        size="sm"
+      >
+        <Dropdown.Item onSelect={() => changeLanguage("en")}>en</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item onSelect={() => changeLanguage("fr")}>fr</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item onSelect={() => changeLanguage("ru")}>ru</Dropdown.Item>
+      </DropdownButton>
+    </NavItem>
+  );
+};
 
 export default LanguageSelector;
