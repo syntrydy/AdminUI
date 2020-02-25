@@ -4,5 +4,41 @@
   },
   "groups": {
     "title": "LISTE DES GROUPES"
+  },
+  "button": {
+    "add": "Ajouter",
+    "edit": "Editer",
+    "delete": "Supprimer",
+    "remove": "Enlever",
+    "list": "Lister",
+    "import": "Importer",
+    "export": "Exporter",
+    "download": "Télécharger"
+  },
+  "sidemenu": {
+    "dashboard": "DASHBOARD",
+    "home": "ACCEUIL",
+    "users": "Utilisateurs",
+    "groups": "Groupes",
+    "identities": "IDENTITIES",
+    "attributes": "ATTRIBUTES",
+    "openid_connect": "OPENID CONNECT",
+    "scopes": "Scopes",
+    "clients": "Clients",
+    "sectors": "Sectors",
+    "saml": "SAML",
+    "trusts": "Trusts Relationships",
+    "acrs": "Saml Acrs",
+    "uma": "UMA",
+    "passport": "PASSPORT",
+    "resources": "Resources",
+    "providers": "Providers",
+    "basic_config": "Basic configuration",
+    "idp_initiated": "Idp Initiated",
+    "extra": "EXTRA",
+    "server_status": "Server Status",
+    "view_logs": "View Logs",
+    "certificates": "Certificates",
+    "logout": "Logout"
   }
 }

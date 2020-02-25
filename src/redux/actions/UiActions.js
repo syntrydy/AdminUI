@@ -1,22 +1,21 @@
 import * as type from "./ActionType";
 
-export const addUser = user => ({
+export const addUserAction = user => ({
   type: type.ADD_USER,
   user
 });
-export const editUser = user => ({
+export const editUserAction = user => ({
   type: type.EDIT_USER,
   user
 });
-export const deleteUser = user => ({
+export const deleteUserAction = user => ({
   type: type.DELETE_USER,
   user
 });
-export const showUsers = user => ({
-  type: type.SHOW_USERS,
-  user
+export const showUsersAction = () => ({
+  type: type.SHOW_USERS
 });
-export const searchUsers = user => ({
+export const searchUsersAction = pattern => ({
   type: type.SEARCH_USERS,
-  user
+  pattern
 });

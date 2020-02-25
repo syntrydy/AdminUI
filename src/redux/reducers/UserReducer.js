@@ -5,37 +5,28 @@ import {
   SHOW_USERS,
   SEARCH_USERS
 } from "../actions/ActionType";
-import {
-  addUser,
-  editUser,
-  deleteUser,
-  showUsers,
-  searchUsers
-} from "../actions/UiActions";
+import getGroupsData from "../../data/users-data";
 
-const initialState = {
-  users: [{ username: "One", firstname: "two" }]
+const usersState = {
+  data: getGroupsData()
 };
 
-const UserReducer = (state = initialState, action) => {
-  console.log("=========================User reducers");
-  console.log("=========================Action" + action);
+const UserReducer = (state = usersState, action) => {
+  console.log(state);
   switch (action.type) {
     case ADD_USER:
-      console.log("Go to add user page");
-      return addUser(state);
+      return state.users.concat(action.payload.user);
     case EDIT_USER:
-      console.log("Go to edit user  page");
-      return editUser(state);
+      return state;
     case DELETE_USER:
-      console.log("Go to delete user page");
-      return deleteUser(state);
+      return {
+        ...state,
+        data: state.data.filter(user => user.id !== action.user.id)
+      };
     case SHOW_USERS:
-      console.log("Go to show users page");
-      return showUsers(state);
+      return state.users;
     case SEARCH_USERS:
-      console.log("Go to users search page");
-      return searchUsers(state);
+      return state.users;
     default:
       return state;
   }

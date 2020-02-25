@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ReactTable from "react-table";
+import { connect } from "react-redux";
+import { store } from "../../redux/store/store";
 import PageTitle from "../../components/common/PageTitle";
-import getGroupsData from "../../data/users-data";
+import { deleteUserAction } from "../../redux/actions/UiActions";
 import {
   Container,
   Row,
@@ -20,19 +22,10 @@ import {
   FormInput
 } from "shards-react";
 
-const UserListPage = () => {
-  const { t} = useTranslation();
+const UserListPage = ({ users, pageSizeOptions = [10] }) => {
+  const { t } = useTranslation();
   let history = useHistory();
-  const [data, setData] = useState(getGroupsData());
-  const [pageSize, setPageSize] = useState(5);
-  const [pageSizeOptions, setPageSizeOptions] = useState([
-    5,
-    10,
-    15,
-    20,
-    25,
-    30
-  ]);
+  const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
   const tableColumns = [
     {
       Header: "#",
@@ -97,7 +90,7 @@ const UserListPage = () => {
               &#xE254;
             </i>
           </Button>
-          <Button theme="white" onClick={() => handleItemDelete(row)}>
+          <Button theme="white" onClick={() => handleItemDelete(store, row)}>
             <i className="material-icons" style={{ color: "red" }}>
               &#xE872;
             </i>
@@ -114,10 +107,7 @@ const UserListPage = () => {
     return `text-${statusMap[status]}`;
   }
   function handlePageSizeChange(e) {
-    this.setState({
-      ...this.state,
-      pageSize: e.target.value
-    });
+    setPageSize(e.target.value);
   }
   function handleFilterSearch(e) {
     this.setState({
@@ -131,8 +121,8 @@ const UserListPage = () => {
   function handleItemEdit(row) {
     alert(`Editing group "${row.original.id}"!`);
   }
-  function handleItemDelete(row) {
-    alert(`Deleting group "${row.original.id}"!`);
+  function handleItemDelete(store, row) {
+    store.dispatch(deleteUserAction(row.original));
   }
   function handleItemViewDetails(row) {
     alert(`Viewing details for "${row.original.id}"!`);
@@ -141,7 +131,7 @@ const UserListPage = () => {
     <Container fluid className="main-content-container px-2 pb-4">
       <Row noGutters className="page-header py-1">
         <PageTitle
-          title={t('users.title')}
+          title={t("users.title")}
           subtitle="IDENTITIES"
           className="text-sm-left mb-3"
         />
@@ -192,7 +182,7 @@ const UserListPage = () => {
           <div className="">
             <ReactTable
               columns={tableColumns}
-              data={data}
+              data={users}
               pageSize={pageSize}
               showPageSizeOptions={false}
               resizable={false}
@@ -204,8 +194,10 @@ const UserListPage = () => {
   );
 };
 function mapStateToProps(state) {
+  console.log(state);
   return {
-    users: state.users
+    users: state.users.data,
+    pageSizeOptions: state.application.pageSizeOptions
   };
 }
-export default UserListPage;
+export default connect(mapStateToProps)(UserListPage);
