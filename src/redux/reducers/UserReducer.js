@@ -5,14 +5,12 @@ import {
   SHOW_USERS,
   SEARCH_USERS
 } from "../actions/ActionType";
-import getGroupsData from "../../data/users-data";
+import getUserData from "../../data/users-data";
 
 const usersState = {
-  data: getGroupsData()
+  data: getUserData()
 };
-
 const UserReducer = (state = usersState, action) => {
-  console.log(state);
   switch (action.type) {
     case ADD_USER:
       return state.users.concat(action.payload.user);

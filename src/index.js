@@ -6,7 +6,6 @@ import { I18nextProvider } from "react-i18next";
 import { store } from "./redux/store/store";
 import i18next from "./i18n";
 import * as serviceWorker from "./serviceWorker";
-console.log("################store:" + JSON.stringify(store));
 ReactDOM.render(
   <Provider store={store}>
     <I18nextProvider i18n={i18next}>

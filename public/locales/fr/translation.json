@@ -5,6 +5,9 @@
   "groups": {
     "title": "LISTE DES GROUPES"
   },
+  "attributes": {
+    "title": "LISTE DES ATTRIBUTS"
+  },
   "button": {
     "add": "Ajouter",
     "edit": "Editer",
@@ -18,8 +21,8 @@
   "sidemenu": {
     "dashboard": "DASHBOARD",
     "home": "ACCEUIL",
-    "users": "Utilisateurs",
-    "groups": "Groupes",
+    "users": "UTILISATEURS",
+    "groups": "GROUPES",
     "identities": "IDENTITIES",
     "attributes": "ATTRIBUTES",
     "openid_connect": "OPENID CONNECT",
@@ -39,6 +42,6 @@
     "server_status": "Server Status",
     "view_logs": "View Logs",
     "certificates": "Certificates",
-    "logout": "Logout"
+    "logout": "Deconnexion"
   }
 }

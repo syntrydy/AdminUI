@@ -18,9 +18,9 @@ To have a lightweight, responsive, attracive  and simple application , we have c
 
 ## UI LIBRARIES
 
-we have decide to used the following UI libraries:
-  1. **Material UI**: https://material-ui.com/
-  2. **PrimeReact**: https://www.primefaces.org/primereact
+we have decided to use the following UI libraries:
+  1. **React-Shard**: https://material-ui.com/
+  2. **react-bootstrap**: https://www.primefaces.org/primereact
   
 ## STATE MANAGEMENT
 
@@ -36,4 +36,6 @@ The UI will support by default three languages(fr, ru and en).
  For path routing, **react-router** is used.
  **React router**: https://reacttraining.com/react-router
 
-#  
+## Date management
+
+  Moment.js is used to manipulate dates.  

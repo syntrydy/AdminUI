@@ -142,7 +142,8 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
               className="btn-lg"
               onClick={() => handleGoToUserAddPage()}
             >
-              <i className="material-icons">add</i> Add
+              <i className="material-icons">add</i>
+              {t("button.add")}
             </Button>
           </ButtonGroup>
         </Col>
@@ -194,7 +195,6 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
   );
 };
 function mapStateToProps(state) {
-  console.log(state);
   return {
     users: state.users.data,
     pageSizeOptions: state.application.pageSizeOptions

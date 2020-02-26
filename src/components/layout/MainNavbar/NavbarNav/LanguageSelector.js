@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 import i18n from "../../../../i18n";
+import { connect } from "react-redux";
 import Dropdown from "react-bootstrap/Dropdown";
+import { store } from "../../../../redux/store/store";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { NavItem } from "shards-react";
+import { changeLanguageAction } from "../../../../redux/actions/UiActions";
 
-const LanguageSelector = () => {
-  const [currentLang, setLang] = useState("en");
+const LanguageSelector = ({ lang }) => {
   function changeLanguage(lng) {
-    setLang(lng);
     i18n.changeLanguage(lng);
+    store.dispatch(changeLanguageAction(lng));
   }
   return (
     <NavItem>
       <DropdownButton
         style={{
-          "marginTop": "20px",
-          "marginLeft": "10px",
-          "backgroundColor": "red !important"
+          marginTop: "20px",
+          marginLeft: "10px",
+          backgroundColor: "red !important"
         }}
         id="dropdown-item-button"
-        title={currentLang}
+        title={lang}
         size="sm"
       >
         <Dropdown.Item onSelect={() => changeLanguage("en")}>en</Dropdown.Item>
@@ -31,5 +33,9 @@ const LanguageSelector = () => {
     </NavItem>
   );
 };
-
-export default LanguageSelector;
+function mapStateToProps(state) {
+  return {
+    lang: state.application.lang
+  };
+}
+export default connect(mapStateToProps)(LanguageSelector);

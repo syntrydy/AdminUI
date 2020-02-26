@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { store } from "../../redux/store/store";
+import { connect } from "react-redux";
+import { deleteGroupAction } from "../../redux/actions/UiActions";
 import ReactTable from "react-table";
 import {
   Container,
@@ -18,21 +21,10 @@ import {
   FormInput
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
-import getGroupsData from "../../data/groups-data";
-
-const GroupListPage = () => {
+const GroupListPage = ({ groups, pageSizeOptions = [10] }) => {
   let history = useHistory();
-  const { t} = useTranslation();
-  const [data, setData] = useState(getGroupsData());
-  const [pageSize, setPageSize] = useState(7);
-  const [pageSizeOptions, setPageSizeOptions] = useState([
-    5,
-    10,
-    15,
-    20,
-    25,
-    30
-  ]);
+  const { t } = useTranslation();
+  const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
   const tableColumns = [
     {
       Header: "#",
@@ -101,10 +93,7 @@ const GroupListPage = () => {
     return `text-${statusMap[status]}`;
   }
   function handlePageSizeChange(e) {
-    this.setState({
-      ...this.state,
-      pageSize: e.target.value
-    });
+    setPageSize(e.target.value);
   }
   function handleFilterSearch(e) {
     this.setState({
@@ -119,7 +108,7 @@ const GroupListPage = () => {
     alert(`Editing group "${row.original.id}"!`);
   }
   function handleItemDelete(row) {
-    alert(`Deleting group "${row.original.id}"!`);
+    store.dispatch(deleteGroupAction(row.original));
   }
   function handleItemViewDetails(row) {
     alert(`Viewing details for "${row.original.id}"!`);
@@ -128,7 +117,7 @@ const GroupListPage = () => {
     <Container fluid className="main-content-container px-2 pb-4">
       <Row noGutters className="page-header py-1">
         <PageTitle
-          title={t('groups.title')}
+          title={t("groups.title")}
           subtitle="IDENTITIES"
           className="text-sm-left mb-3"
         />
@@ -179,7 +168,7 @@ const GroupListPage = () => {
           <div className="">
             <ReactTable
               columns={tableColumns}
-              data={data}
+              data={groups}
               pageSize={pageSize}
               showPageSizeOptions={false}
               resizable={false}
@@ -190,4 +179,10 @@ const GroupListPage = () => {
     </Container>
   );
 };
-export default GroupListPage;
+function mapStateToProps(state) {
+  return {
+    groups: state.groups.data,
+    pageSizeOptions: state.application.pageSizeOptions
+  };
+}
+export default connect(mapStateToProps)(GroupListPage);

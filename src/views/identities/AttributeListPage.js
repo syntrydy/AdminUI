@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { store } from "../../redux/store/store";
 import { useHistory } from "react-router-dom";
 import ReactTable from "react-table";
 import {
@@ -17,20 +20,12 @@ import {
   FormInput
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
-import getAttributeData from "../../data/attributes-data";
+import { deleteAttributeAction } from "../../redux/actions/UiActions";
 
-const AttributeListPage = () => {
+const AttributeListPage = ({ attributes, pageSizeOptions = [10] }) => {
   let history = useHistory();
-  const [data, setData] = useState(getAttributeData());
-  const [pageSize, setPageSize] = useState(10);
-  const [pageSizeOptions, setPageSizeOptions] = useState([
-    5,
-    10,
-    15,
-    20,
-    25,
-    30
-  ]);
+  const { t } = useTranslation();
+  const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
   const tableColumns = [
     {
       Header: "#",
@@ -100,10 +95,7 @@ const AttributeListPage = () => {
     return `text-${statusMap[status]}`;
   }
   function handlePageSizeChange(e) {
-    this.setState({
-      ...this.state,
-      pageSize: e.target.value
-    });
+    setPageSize(e.target.value);
   }
   function handleFilterSearch(e) {
     this.setState({
@@ -118,7 +110,7 @@ const AttributeListPage = () => {
     alert(`Editing attribute "${row.original.id}"!`);
   }
   function handleItemDelete(row) {
-    alert(`Deleting attribute "${row.original.id}"!`);
+    store.dispatch(deleteAttributeAction(row.original));
   }
   function handleItemViewDetails(row) {
     alert(`Viewing details for "${row.original.id}"!`);
@@ -127,7 +119,7 @@ const AttributeListPage = () => {
     <Container fluid className="main-content-container px-2 pb-4">
       <Row noGutters className="page-header py-1">
         <PageTitle
-          title="ATTRIBUTES"
+          title={t("attributes.title")}
           subtitle="IDENTITIES"
           className="text-sm-left mb-3"
         />
@@ -138,7 +130,8 @@ const AttributeListPage = () => {
               className="btn-lg"
               onClick={() => handleGoToAttributeAddPage()}
             >
-              <i class="material-icons">add</i> Add
+              <i class="material-icons">add</i>
+              {t("button.add")}
             </Button>
           </ButtonGroup>
         </Col>
@@ -178,7 +171,7 @@ const AttributeListPage = () => {
           <div className="">
             <ReactTable
               columns={tableColumns}
-              data={data}
+              data={attributes}
               pageSize={pageSize}
               showPageSizeOptions={false}
               resizable={false}
@@ -189,4 +182,10 @@ const AttributeListPage = () => {
     </Container>
   );
 };
-export default AttributeListPage;
+function mapStateToProps(state) {
+  return {
+    attributes: state.attributes.data,
+    pageSizeOptions: state.application.pageSizeOptions
+  };
+}
+export default connect(mapStateToProps)(AttributeListPage);
