@@ -4,6 +4,7 @@ import routes from "./routes";
 import "./css/bootstrap.min.css";
 import "./assets/main.scss";
 import "./css/shards-dashboards.1.1.0.css";
+import "./css/app.css";
 import ErrorPage from "./views/ErrorPage";
 export default () => (
   <BrowserRouter basename={process.env.REACT_APP_BASENAME || ""}>

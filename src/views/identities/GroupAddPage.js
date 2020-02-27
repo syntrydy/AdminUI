@@ -7,6 +7,17 @@ import GroupFormRight from "../../components/group/GroupFormRight";
 
 const GroupAddPage = () => {
   const { t } = useTranslation();
+  const users = [
+    "Audi",
+    "BMW",
+    "Fiat",
+    "Ford",
+    "Honda",
+    "Jaguar",
+    "Mercedes",
+    "Renault",
+    "Volvo"
+  ];
   return (
     <Container fluid className="main-content-container px-4">
       <Row noGutters className="page-header py-1">
@@ -22,7 +33,7 @@ const GroupAddPage = () => {
           <GroupFormLeft />
         </Col>
         <Col lg="4">
-          <GroupFormRight />
+          <GroupFormRight users={users} />
         </Col>
       </Row>
     </Container>

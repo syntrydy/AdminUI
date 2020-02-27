@@ -12,6 +12,7 @@ import {
   FormSelect,
   Button
 } from "shards-react";
+import ControlPanel from "../common/ControlPanel";
 
 const GroupFormLeft = ({ title }) => (
   <Card small className="mb-4">
@@ -45,22 +46,7 @@ const GroupFormLeft = ({ title }) => (
                   </FormSelect>
                 </Col>
               </Row>
-              <Row form>
-                <Col md="6" className="form-group">
-                  <Button type="submit" theme="primary">
-                    Save
-                  </Button>
-                </Col>
-                <Col md="6" className="form-group">
-                  <Button
-                    type="reset"
-                    theme="warning"
-                    style={{ float: "right" }}
-                  >
-                    cancel
-                  </Button>
-                </Col>
-              </Row>
+              <ControlPanel></ControlPanel>
             </Form>
           </Col>
         </Row>

@@ -21,6 +21,7 @@ import OpenIdSectorListPage from "./views/sso/OpenIdSectorListPage";
 import CertificatesListPage from "./views/extra/CertificatesListPage";
 import ServerStatusPage from "./views/extra/ServerStatusPage";
 import UserProfilePage from "./views/identities/UserProfilePage";
+import AttributeAddPage from "./views/identities/AttributeAddPage";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -68,7 +69,7 @@ export default [
   {
     path: "/attribute_add",
     layout: DefaultLayout,
-    component: Errors
+    component: AttributeAddPage
   },
   {
     path: "/openid_scopes",

@@ -19,10 +19,12 @@ const UserAddPage = () => (
         <UserFormLeft />
       </Col>
       <Col lg="4">
-      <UserFormRight />
+        <UserFormRight handler={selectCustomAttribute} />
       </Col>
     </Row>
   </Container>
 );
-
+function selectCustomAttribute(attribute) {
+  alert(attribute + " has been selected");
+}
 export default UserAddPage;
