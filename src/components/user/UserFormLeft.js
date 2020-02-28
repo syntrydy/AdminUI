@@ -9,8 +9,7 @@ import {
   Col,
   Form,
   FormInput,
-  FormSelect,
-  Button
+  FormSelect
 } from "shards-react";
 import ControlPanel from "../common/ControlPanel";
 
@@ -85,7 +84,7 @@ const UserFormLeft = ({ title }) => (
                   </FormSelect>
                 </Col>
               </Row>
-              <ControlPanel></ControlPanel>
+              <ControlPanel />
             </Form>
           </Col>
         </Row>

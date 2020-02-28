@@ -22,6 +22,8 @@ import CertificatesListPage from "./views/extra/CertificatesListPage";
 import ServerStatusPage from "./views/extra/ServerStatusPage";
 import UserProfilePage from "./views/identities/UserProfilePage";
 import AttributeAddPage from "./views/identities/AttributeAddPage";
+import OpenIdScopeAddPage from "./views/sso/OpenIdScopeAddPage";
+import OpenIdClientAddPage from "./views/sso/OpenIdClientAddPage";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -79,7 +81,7 @@ export default [
   {
     path: "/openid_scope_add",
     layout: DefaultLayout,
-    component: Errors
+    component: OpenIdScopeAddPage
   },
   {
     path: "/openid_clients",
@@ -89,7 +91,7 @@ export default [
   {
     path: "/openid_client_add",
     layout: DefaultLayout,
-    component: Errors
+    component: OpenIdClientAddPage
   },
   {
     path: "/openid_sector_identifiers",
