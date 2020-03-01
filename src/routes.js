@@ -24,6 +24,7 @@ import UserProfilePage from "./views/identities/UserProfilePage";
 import AttributeAddPage from "./views/identities/AttributeAddPage";
 import OpenIdScopeAddPage from "./views/sso/OpenIdScopeAddPage";
 import OpenIdClientAddPage from "./views/sso/OpenIdClientAddPage";
+import ChangePasswordPage from "./views/ChangePasswordPage";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -152,6 +153,11 @@ export default [
     path: "/me",
     layout: DefaultLayout,
     component: UserProfilePage
+  },
+  {
+    path: "/changepw",
+    layout: DefaultLayout,
+    component: ChangePasswordPage
   },
   {
     path: "/header-navigation",

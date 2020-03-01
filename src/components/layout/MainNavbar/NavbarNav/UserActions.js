@@ -17,7 +17,6 @@ export default class UserActions extends React.Component {
     this.state = {
       visible: false
     };
-
     this.toggleUserActions = this.toggleUserActions.bind(this);
   }
 
@@ -41,6 +40,10 @@ export default class UserActions extends React.Component {
         <Collapse tag={DropdownMenu} right small open={this.state.visible}>
           <DropdownItem tag={Link} to="me">
             <i className="material-icons">&#xE7FD;</i> Profile
+          </DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem tag={Link} to="changepw">
+            <i className="material-icons">lock</i>Change password
           </DropdownItem>
           <DropdownItem divider />
           <DropdownItem tag={Link} to="/" className="text-danger">

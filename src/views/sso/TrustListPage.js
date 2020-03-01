@@ -18,8 +18,9 @@ import {
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
 import getGroupsData from "../../data/trusts-data";
-
+import { useTranslation } from "react-i18next";
 const TrustListPage = () => {
+  const { t } = useTranslation();
   let history = useHistory();
   const [data, setData] = useState(getGroupsData());
   const [pageSize, setPageSize] = useState(7);
@@ -148,7 +149,7 @@ const TrustListPage = () => {
               className="btn-lg"
               onClick={() => handleGoToGroupAddPage()}
             >
-              <i class="material-icons">add</i> Add
+              <i class="material-icons">add</i> {t("button.add")}
             </Button>
           </ButtonGroup>
         </Col>
@@ -158,7 +159,7 @@ const TrustListPage = () => {
           <Container fluid className="file-manager__filters border-bottom">
             <Row>
               <Col className="file-manager__filters__rows d-flex" md="6">
-                <span>Show</span>
+                <span>{t("button.show")}</span>
                 <FormSelect
                   size="sm"
                   value={pageSize}
@@ -166,7 +167,7 @@ const TrustListPage = () => {
                 >
                   {pageSizeOptions.map((size, idx) => (
                     <option key={idx} value={size}>
-                      {size} rows
+                      {size} {t("button.rows")}
                     </option>
                   ))}
                 </FormSelect>

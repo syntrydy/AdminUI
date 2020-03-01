@@ -13,10 +13,14 @@
     "edit": "Editer",
     "delete": "Supprimer",
     "remove": "Enlever",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
     "list": "Lister",
     "import": "Importer",
     "export": "Exporter",
-    "download": "Télécharger"
+    "download": "Télécharger",
+    "show": "Afficher",
+    "rows": "lignes"
   },
   "sidemenu": {
     "dashboard": "DASHBOARD",
@@ -43,5 +47,19 @@
     "view_logs": "View Logs",
     "certificates": "Certificates",
     "logout": "Deconnexion"
+  },
+  "user": {
+    "displayName": "Display Name",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "userName": "User Name",
+    "email": "Email Address",
+    "description": "Description",
+    "status": "Status",
+    "size": "Size",
+    "actions": "Actions"
+  },
+  "form": {
+    "userAddFormTitle": "AJOUT D'UN UTILISATEUR"
   }
 }

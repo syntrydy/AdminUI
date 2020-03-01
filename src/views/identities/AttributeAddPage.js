@@ -16,7 +16,9 @@ import {
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
 import ControlPanel from "../../components/common/ControlPanel";
+import { useTranslation } from "react-i18next";
 const AttributeAddPage = () => {
+  const { t } = useTranslation();
   const [multivalued, setMultivalued] = useState(false);
   const [includeInScim, setIncludeInScim] = useState(false);
   const [enableRegex, setEnableRegex] = useState(false);

@@ -18,9 +18,10 @@ import {
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
 import getGroupsData from "../../data/clients-data";
-
+import { useTranslation } from "react-i18next";
 const OpenIdClientListPage = () => {
   let history = useHistory();
+  const { t } = useTranslation();
   const [data, setData] = useState(getGroupsData());
   const [pageSize, setPageSize] = useState(5);
   const [pageSizeOptions, setPageSizeOptions] = useState([

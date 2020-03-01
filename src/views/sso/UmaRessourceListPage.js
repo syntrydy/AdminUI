@@ -18,8 +18,9 @@ import {
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
 import getRessourcesData from "../../data/ressources-data";
-
+import { useTranslation } from "react-i18next";
 const UmaRessourceListPage = () => {
+  const { t } = useTranslation();
   let history = useHistory();
   const [data, setData] = useState(getRessourcesData());
   const [pageSize, setPageSize] = useState(5);
@@ -82,10 +83,7 @@ const UmaRessourceListPage = () => {
     }
   ];
   function handlePageSizeChange(e) {
-    this.setState({
-      ...this.state,
-      pageSize: e.target.value
-    });
+    setPageSize(e.target.value);
   }
   function handleFilterSearch(e) {
     this.setState({
@@ -130,7 +128,7 @@ const UmaRessourceListPage = () => {
           <Container fluid className="file-manager__filters border-bottom">
             <Row>
               <Col className="file-manager__filters__rows d-flex" md="6">
-                <span>Show</span>
+                <span>{t("button.show")}</span>
                 <FormSelect
                   size="sm"
                   value={pageSize}
@@ -138,7 +136,7 @@ const UmaRessourceListPage = () => {
                 >
                   {pageSizeOptions.map((size, idx) => (
                     <option key={idx} value={size}>
-                      {size} rows
+                      {size} {t("button.rows")}
                     </option>
                   ))}
                 </FormSelect>

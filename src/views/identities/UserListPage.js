@@ -40,31 +40,31 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
       minWidth: 100
     },
     {
-      Header: "Display Name",
+      Header: t("user.displayName"),
       accessor: "displayName",
       className: "text-center",
       minWidth: 100
     },
     {
-      Header: "First Name",
+      Header: t("user.firstName"),
       accessor: "firstName",
       className: "text-center",
       minWidth: 100
     },
     {
-      Header: "Email",
+      Header: t("user.email"),
       accessor: "email",
       className: "text-center",
       minWidth: 200
     },
     {
-      Header: "Size",
+      Header: t("user.size"),
       accessor: "size",
       maxWidth: 50,
       className: "text-center"
     },
     {
-      Header: "Status",
+      Header: t("user.status"),
       accessor: "status",
       maxWidth: 100,
       Cell: row => (
@@ -75,7 +75,7 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
       className: "text-center"
     },
     {
-      Header: "Actions",
+      Header: t("user.actions"),
       accessor: "actions",
       maxWidth: 150,
       minWidth: 100,
@@ -153,7 +153,7 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
           <Container fluid className="file-manager__filters border-bottom">
             <Row>
               <Col className="file-manager__filters__rows d-flex" md="6">
-                <span>Show</span>
+                <span>{t("button.show")}</span>
                 <FormSelect
                   size="sm"
                   value={pageSize}
@@ -161,7 +161,7 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
                 >
                   {pageSizeOptions.map((size, idx) => (
                     <option key={idx} value={size}>
-                      {size} rows
+                      {size} {t("button.rows")}
                     </option>
                   ))}
                 </FormSelect>

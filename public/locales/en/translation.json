@@ -13,10 +13,15 @@
     "edit": "Edit",
     "delete": "Delete",
     "remove": "Remove",
+    "save": "Save",
+    "cancel": "Cancel",
     "list": "List",
     "import": "Import",
     "export": "Export",
-    "download": "Download"
+    "download": "Download",
+    "show": "Show",
+    "rows": "rows",
+    "changeButton":"Change Password"
   },
   "sidemenu": {
     "dashboard": "DASHBOARD",
@@ -43,5 +48,19 @@
     "view_logs": "View Logs",
     "certificates": "Certificates",
     "logout": "Logout"
+  },
+  "user": {
+    "displayName": "Display Name",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "userName": "User Name",
+    "email": "Email Address",
+    "description": "Description",
+    "status": "Status",
+    "size": "Size",
+    "actions": "Actions"
+  },
+  "form": {
+    "userAddFormTitle": "USER ADD FORM"
   }
 }

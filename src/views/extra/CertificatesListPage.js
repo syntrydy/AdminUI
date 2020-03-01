@@ -9,7 +9,9 @@ import {
   Button
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
+import { useTranslation } from "react-i18next";
 const CertificatesListPage = () => {
+  const { t } = useTranslation();
   return (
     <Container fluid className="main-content-container px-4">
       <Row noGutters className="page-header py-1">
