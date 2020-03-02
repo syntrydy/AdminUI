@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { AutoComplete } from "primereact/autocomplete";
 import { Card, CardHeader, ListGroup, ListGroupItem, Row } from "shards-react";
-import 'primereact/resources/themes/nova-light/theme.css'
+import '../../css/theme.css'
 import 'primereact/resources/primereact.min.css'
 
 const GroupFormRight = ({ title, users }) => {

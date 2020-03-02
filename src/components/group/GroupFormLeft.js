@@ -9,8 +9,7 @@ import {
   Col,
   Form,
   FormInput,
-  FormSelect,
-  Button
+  FormSelect
 } from "shards-react";
 import ControlPanel from "../common/ControlPanel";
 

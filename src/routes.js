@@ -25,6 +25,8 @@ import AttributeAddPage from "./views/identities/AttributeAddPage";
 import OpenIdScopeAddPage from "./views/sso/OpenIdScopeAddPage";
 import OpenIdClientAddPage from "./views/sso/OpenIdClientAddPage";
 import ChangePasswordPage from "./views/ChangePasswordPage";
+import OpenIdSectorAddPage from "./views/sso/OpenIdSectorAddPage";
+import TrustAddPage from "./views/sso/TrustAddPage";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -100,6 +102,11 @@ export default [
     component: OpenIdSectorListPage
   },
   {
+    path: "/openid_sector_add",
+    layout: DefaultLayout,
+    component: OpenIdSectorAddPage
+  },
+  {
     path: "/saml_trusts",
     layout: DefaultLayout,
     component: TrustListPage
@@ -107,7 +114,7 @@ export default [
   {
     path: "/saml_trust_add",
     layout: DefaultLayout,
-    component: Errors
+    component: TrustAddPage
   },
   {
     path: "/saml_acrs",

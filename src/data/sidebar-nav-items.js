@@ -234,12 +234,7 @@ export default function() {
       title: "Settingts",
       items: [
         {
-          title: "Toggle Header",
-          htmlBefore: '<i class="material-icons">view_day</i>',
-          to: "/header-navigation"
-        },
-        {
-          title: " Hide Menu",
+          title: "Close Menu",
           htmlBefore: '<i class="material-icons">fast_rewind</i>',
           to: "/icon"
         },

@@ -3,3 +3,16 @@
     margin-left: 5%;
     margin-right: 5%;
 }
+.p-tabview-selected{
+    background: green !important;
+}
+.p-inputtext:enabled:focus{
+    border-color: green !important;
+    box-shadow: 0 0 0 0.2em green;
+    border-color: green;
+}
+.p-tabview.p-tabview-top .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight a{
+    background: green !important;
+    background-color: green !important;
+    color: white !important;
+}
