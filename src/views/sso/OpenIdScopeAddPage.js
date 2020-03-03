@@ -15,9 +15,11 @@ import {
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
 import ControlPanel from "../../components/common/ControlPanel";
+import { Panel } from "primereact/panel";
 
 const OpenIdScopeAddPage = () => {
   const [isDynamic, setIsDynamic] = useState(false);
+  const [scopeType, setScopeType] = useState("OAuth");
   return (
     <Container fluid className="main-content-container px-4">
       <Row noGutters className="page-header py-1">
@@ -48,12 +50,16 @@ const OpenIdScopeAddPage = () => {
                           />
                         </Col>
                         <Col md="4" className="form-group">
-                          <label htmlFor="status">Scope type</label>
-                          <FormSelect id="feInputState">
+                          <label htmlFor="scopeType">Scope type</label>
+                          <FormSelect
+                            id="scopeType"
+                            onChange={e => setScopeType(e.target.value)}
+                            value={scopeType}
+                          >
                             <option>Choose...</option>
-                            <option>OpenId</option>
-                            <option>Dynamic</option>
-                            <option>OAuth</option>
+                            <option value="OpenID">OpenID</option>
+                            <option value="Dynamic">Dynamic</option>
+                            <option value="OAuth">OAuth</option>
                           </FormSelect>
                         </Col>
                       </Row>
@@ -86,6 +92,23 @@ const OpenIdScopeAddPage = () => {
                           />
                         </Col>
                       </Row>
+                      {(scopeType === "OpenID" || scopeType === "Dynamic")  && (
+                        <Row form>
+                          <Col md="12" className="form-group">
+                            <Panel header="Claims" toggleable={true}></Panel>
+                          </Col>
+                        </Row>
+                      )}
+                      {scopeType === "Dynamic" && (
+                        <Row form>
+                          <Col md="12" className="form-group">
+                            <Panel
+                              header="Dynamics scope scripts"
+                              toggleable={true}
+                            ></Panel>
+                          </Col>
+                        </Row>
+                      )}
                       <ControlPanel />
                     </Form>
                   </Col>

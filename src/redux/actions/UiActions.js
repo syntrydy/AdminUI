@@ -57,6 +57,15 @@ export const deleteAttributeAction = attribute => ({
   type: type.DELETE_ATTRIBUTE,
   attribute
 });
+export const deleteProviderAction = provider => ({
+  type: type.DELETE_PROVIDER,
+  provider
+});
+export const deleteClientAction = client => ({
+  type: type.DELETE_CLIENT,
+  client
+});
+
 export const showAttributesAction = () => ({
   type: type.SHOW_ATTRIBUTES
 });

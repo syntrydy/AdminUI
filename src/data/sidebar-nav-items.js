@@ -68,6 +68,10 @@ export default function() {
             {
               title: "sidemenu.acrs",
               to: "/saml_acrs"
+            },
+            {
+              title: "sidemenu.namedId",
+              to: "/saml_namedid"
             }
           ]
         },
@@ -93,7 +97,7 @@ export default function() {
           items: [
             {
               title: "sidemenu.providers",
-              to: "/password_providers"
+              to: "/passport_providers"
             },
             {
               title: "sidemenu.basic_config",

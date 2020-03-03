@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import ReactTable from "react-table";
-import { store } from "../../redux/store/store";
 import PageTitle from "../../components/common/PageTitle";
-import { deleteClientAction } from "../../redux/actions/UiActions";
 import { connect } from "react-redux";
+import { store } from "../../redux/store/store";
+import { deleteProviderAction } from "../../redux/actions/UiActions";
 import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
 import {
   Container,
   Row,
@@ -23,7 +23,7 @@ import {
   Badge
 } from "shards-react";
 
-const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
+const PassportListPage = ({ providers, pageSizeOptions = [10] }) => {
   let history = useHistory();
   const { t } = useTranslation();
   const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
@@ -35,28 +35,26 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
       className: "text-center"
     },
     {
-      Header: "Inum",
-      accessor: "inum",
+      Header: "ProviderID",
+      accessor: "providerId",
       className: "text-center",
-      minWidth: 250
+      minWidth: 100
     },
     {
-      Header: "Display Name",
+      Header: "DisplayName",
       accessor: "displayName",
-      className: "text-center",
-      minWidth: 100
-    },
-    {
-      Header: "Description",
-      accessor: "description",
-      className: "text-center",
-      minWidth: 100
+      className: "text-center"
     },
     {
       Header: "Type",
       accessor: "type",
-      className: "text-center",
-      minWidth: 100
+      className: "text-center"
+    },
+    {
+      Header: "Strategy",
+      accessor: "strategy",
+      minWidth: 100,
+      className: "text-center"
     },
     {
       Header: "Status",
@@ -73,7 +71,7 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
       Header: "Actions",
       accessor: "actions",
       maxWidth: 300,
-      minWidth: 180,
+      minWidth: 80,
       sortable: false,
       Cell: row => (
         <ButtonGroup size="sm" className="d-table mx-auto">
@@ -94,11 +92,12 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
       )
     }
   ];
+
   function getBadgeTheme(status) {
-    if (status === "Enabled") {
+    if (status === "Active") {
       return "success";
     } else {
-      return "warning";
+      return "danger";
     }
   }
   function handlePageSizeChange(e) {
@@ -110,14 +109,14 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
       tableData: this.searcher.search(e.target.value)
     });
   }
-  function handleGoToClientAddPage() {
-    return history.push("/openid_client_add");
+  function handleGoToGroupAddPage() {
+    return history.push("/passport_provider_add");
   }
   function handleItemEdit(row) {
-    alert(`Editing client "${row.original.id}"!`);
+    alert(`Editing provider "${row.original.id}"!`);
   }
   function handleItemDelete(row) {
-    store.dispatch(deleteClientAction(row.original));
+    store.dispatch(deleteProviderAction(row.original));
   }
   function handleItemViewDetails(row) {
     alert(`Viewing details for "${row.original.id}"!`);
@@ -126,8 +125,8 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
     <Container fluid className="main-content-container px-2 pb-4">
       <Row noGutters className="page-header py-1">
         <PageTitle
-          title="OPENID CLIENTS"
-          subtitle="SINGLE SIGN ON"
+          title="Passports providers"
+          subtitle="SSO"
           className="text-sm-left mb-3"
         />
         <Col sm="1" className="d-flex ml-auto my-auto">
@@ -135,7 +134,7 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
             <Button
               theme="primary"
               className="btn-lg"
-              onClick={() => handleGoToClientAddPage()}
+              onClick={() => handleGoToGroupAddPage()}
             >
               <i class="material-icons">add</i> {t("button.add")}
             </Button>
@@ -177,7 +176,7 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
           <div className="">
             <ReactTable
               columns={tableColumns}
-              data={clients}
+              data={providers}
               pageSize={pageSize}
               showPageSizeOptions={false}
               resizable={false}
@@ -188,10 +187,12 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
     </Container>
   );
 };
+
 function mapStateToProps(state) {
   return {
-    clients: state.clients.data,
+    providers: state.providers.data,
     pageSizeOptions: state.application.pageSizeOptions
   };
 }
-export default connect(mapStateToProps)(OpenIdClientListPage);
+
+export default connect(mapStateToProps)(PassportListPage);

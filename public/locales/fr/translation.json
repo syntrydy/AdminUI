@@ -36,6 +36,7 @@
     "saml": "SAML",
     "trusts": "Trusts Relationships",
     "acrs": "Saml Acrs",
+    "namedId":"Configure NamedId",
     "uma": "UMA",
     "passport": "PASSPORT",
     "resources": "Resources",

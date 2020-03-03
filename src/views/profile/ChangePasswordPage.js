@@ -21,7 +21,7 @@ const ChangePasswordPage = () => {
             <CardBody>
               <img
                 className="auth-form__logo d-table mx-auto mb-3"
-                src={require("../images/logo.png")}
+                src={require("../../images/logo.png")}
                 alt="Change User Profile"
               />
               <h5 className="auth-form__title text-center mb-4">

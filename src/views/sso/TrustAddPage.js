@@ -147,5 +147,4 @@ const TrustAddPage = () => {
     </Container>
   );
 };
-
 export default TrustAddPage;

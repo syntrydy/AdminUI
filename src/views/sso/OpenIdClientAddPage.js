@@ -14,10 +14,9 @@ const OpenIdClientAddPage = () => {
         />
       </Row>
       <Row>
-        <Col lg="10">
+        <Col lg="12">
           <ClientAddForm title="OPENID CLIENT ADD FORM" />
         </Col>
-        <Col lg="2"></Col>
       </Row>
     </Container>
   );

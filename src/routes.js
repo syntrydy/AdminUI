@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import { DefaultLayout, HeaderNavigation, IconSidebar } from "./layouts";
 import HomePage from "./views/HomePage";
 import FileManagerList from "./views/FileManagerList";
-import Errors from "./views/ErrorPage";
 import HeaderNav from "./views/HeaderNavigation";
 import GroupListPage from "./views/identities/GroupListPage";
 import UserListPage from "./views/identities/UserListPage";
@@ -20,13 +19,17 @@ import UmaScopeListPage from "./views/sso/UmaScopeListPage";
 import OpenIdSectorListPage from "./views/sso/OpenIdSectorListPage";
 import CertificatesListPage from "./views/extra/CertificatesListPage";
 import ServerStatusPage from "./views/extra/ServerStatusPage";
-import UserProfilePage from "./views/identities/UserProfilePage";
+import UserProfilePage from "./views/profile/UserProfilePage";
 import AttributeAddPage from "./views/identities/AttributeAddPage";
 import OpenIdScopeAddPage from "./views/sso/OpenIdScopeAddPage";
 import OpenIdClientAddPage from "./views/sso/OpenIdClientAddPage";
-import ChangePasswordPage from "./views/ChangePasswordPage";
+import ChangePasswordPage from "./views/profile/ChangePasswordPage";
 import OpenIdSectorAddPage from "./views/sso/OpenIdSectorAddPage";
 import TrustAddPage from "./views/sso/TrustAddPage";
+import AddNewPostPage from "./views/RegistrationPage";
+import PassportListPage from "./views/sso/PassportListPage";
+import ProviderAddPage from "./views/sso/ProviderAddPage";
+import PassportConfigPage from "./views/sso/PassportConfigPage";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -122,6 +125,11 @@ export default [
     component: TrustAcrListPage
   },
   {
+    path: "/saml_namedid",
+    layout: DefaultLayout,
+    component: ErrorPage
+  },
+  {
     path: "/uma_ressources",
     layout: DefaultLayout,
     component: UmaRessourceListPage
@@ -139,7 +147,22 @@ export default [
   {
     path: "/uma_scope_add",
     layout: DefaultLayout,
-    component: ErrorPage
+    component: AddNewPostPage
+  },
+  {
+    path: "/passport_providers",
+    layout: DefaultLayout,
+    component: PassportListPage
+  },
+  {
+    path: "/passport_provider_add",
+    layout: DefaultLayout,
+    component: ProviderAddPage
+  },
+  {
+    path: "/passport_config",
+    layout: DefaultLayout,
+    component: PassportConfigPage
   },
   {
     path: "/certificates",
