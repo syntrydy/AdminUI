@@ -5,6 +5,7 @@ import ReactTable from "react-table";
 import { connect } from "react-redux";
 import { store } from "../../redux/store/store";
 import PageTitle from "../../components/common/PageTitle";
+import DialogBox from "../../components/common/DialogBox";
 import { deleteUserAction } from "../../redux/actions/UiActions";
 import {
   Container,
@@ -19,13 +20,16 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  FormInput
+  FormInput,
+  Badge
 } from "shards-react";
 
 const UserListPage = ({ users, pageSizeOptions = [10] }) => {
   const { t } = useTranslation();
   let history = useHistory();
   const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
+  const [modalStatus, setModalStatus] = useState(false);
+  const [rowTobeDeleted, setRowTobeDeleted] = useState(null);
   const tableColumns = [
     {
       Header: "#",
@@ -68,9 +72,9 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
       accessor: "status",
       maxWidth: 100,
       Cell: row => (
-        <span className={getStatusClass(row.original.status)}>
+        <Badge theme={getBadgeTheme(row.original.status)}>
           {row.original.status}
-        </span>
+        </Badge>
       ),
       className: "text-center"
     },
@@ -90,7 +94,7 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
               &#xE254;
             </i>
           </Button>
-          <Button theme="white" onClick={() => handleItemDelete(store, row)}>
+          <Button theme="white" onClick={() => showDialogBox(row)}>
             <i className="material-icons" style={{ color: "red" }}>
               &#xE872;
             </i>
@@ -99,12 +103,12 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
       )
     }
   ];
-  function getStatusClass(status) {
-    const statusMap = {
-      InActive: "danger",
-      Active: "success"
-    };
-    return `text-${statusMap[status]}`;
+  function getBadgeTheme(status) {
+    if (status === "Active") {
+      return "primary";
+    } else {
+      return "warning";
+    }
   }
   function handlePageSizeChange(e) {
     setPageSize(e.target.value);
@@ -121,14 +125,29 @@ const UserListPage = ({ users, pageSizeOptions = [10] }) => {
   function handleItemEdit(row) {
     alert(`Editing group "${row.original.id}"!`);
   }
-  function handleItemDelete(store, row) {
-    store.dispatch(deleteUserAction(row.original));
+  function toggle() {
+    setModalStatus(!modalStatus);
+  }
+  function showDialogBox(row) {
+    setRowTobeDeleted(row);
+    setModalStatus(true);
+  }
+  function handleItemDelete(row) {
+    if (row != null && row.original != null) {
+      store.dispatch(deleteUserAction(row.original));
+      setModalStatus(false);
+    }
   }
   function handleItemViewDetails(row) {
     alert(`Viewing details for "${row.original.id}"!`);
   }
   return (
     <Container fluid className="main-content-container px-2 pb-4">
+      <DialogBox
+        status={modalStatus}
+        handleAccept={() => handleItemDelete(rowTobeDeleted)}
+        toggle={toggle}
+      ></DialogBox>
       <Row noGutters className="page-header py-1">
         <PageTitle
           title={t("users.title")}

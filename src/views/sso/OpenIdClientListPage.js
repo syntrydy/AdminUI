@@ -96,7 +96,7 @@ const OpenIdClientListPage = ({ clients, pageSizeOptions = [10] }) => {
   ];
   function getBadgeTheme(status) {
     if (status === "Enabled") {
-      return "success";
+      return "primary";
     } else {
       return "warning";
     }

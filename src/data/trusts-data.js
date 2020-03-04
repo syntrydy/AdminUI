@@ -12,16 +12,16 @@ export default () => [
     displayName: "Incomon SP",
     description: "sample app",
     type: "SERVICE_PROVIDER",
-    validationStatus: "Success",
-    status: "Active"
+    validationStatus: "Failed",
+    status: "InActive"
   },
   {
     id: 3,
     displayName: "jumcloud",
     description: "sample app",
     type: "SERVICE_PROVIDER",
-    validationStatus: "Success",
-    status: "Active"
+    validationStatus: "Pending",
+    status: "InActive"
   },
   {
     id: 4,

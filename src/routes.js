@@ -30,6 +30,7 @@ import AddNewPostPage from "./views/RegistrationPage";
 import PassportListPage from "./views/sso/PassportListPage";
 import ProviderAddPage from "./views/sso/ProviderAddPage";
 import PassportConfigPage from "./views/sso/PassportConfigPage";
+import TrustNamedIdPage from "./views/sso/TrustNamedIdPage";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -127,7 +128,7 @@ export default [
   {
     path: "/saml_namedid",
     layout: DefaultLayout,
-    component: ErrorPage
+    component: TrustNamedIdPage
   },
   {
     path: "/uma_ressources",

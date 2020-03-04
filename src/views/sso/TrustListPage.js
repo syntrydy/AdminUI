@@ -14,7 +14,8 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  FormInput
+  FormInput,
+  Badge
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
 import getGroupsData from "../../data/trusts-data";
@@ -61,9 +62,9 @@ const TrustListPage = () => {
       accessor: "validationStatus",
       maxWidth: 105,
       Cell: row => (
-        <span className={getStatusClass(row.original.validationStatus)}>
+        <Badge theme={getBadgeTheme(row.original.validationStatus)}>
           {row.original.validationStatus}
-        </span>
+        </Badge>
       ),
       className: "text-center"
     },
@@ -72,9 +73,9 @@ const TrustListPage = () => {
       accessor: "status",
       maxWidth: 80,
       Cell: row => (
-        <span className={getStatusClass(row.original.status)}>
+        <Badge theme={getStatusBadgeTheme(row.original.status)}>
           {row.original.status}
-        </span>
+        </Badge>
       ),
       className: "text-center"
     },
@@ -103,12 +104,22 @@ const TrustListPage = () => {
       )
     }
   ];
-  function getStatusClass(status) {
-    const statusMap = {
-      Failed: "danger",
-      Success: "success"
-    };
-    return `text-${statusMap[status]}`;
+  function getBadgeTheme(status) {
+    if (status === "Success") {
+      return "primary";
+    } else if (status === "Failed") {
+      return "danger";
+    } else {
+      return "secondary";
+    }
+  }
+
+  function getStatusBadgeTheme(status) {
+    if (status === "Active") {
+      return "primary";
+    } else {
+      return "warning";
+    }
   }
   function handlePageSizeChange(e) {
     this.setState({

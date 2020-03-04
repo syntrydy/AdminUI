@@ -18,7 +18,8 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  FormInput
+  FormInput,
+  Badge
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
 const GroupListPage = ({ groups, pageSizeOptions = [10] }) => {
@@ -54,9 +55,9 @@ const GroupListPage = ({ groups, pageSizeOptions = [10] }) => {
       accessor: "status",
       maxWidth: 100,
       Cell: row => (
-        <span className={getStatusClass(row.original.status)}>
+        <Badge theme={getBadgeTheme(row.original.status)}>
           {row.original.status}
-        </span>
+        </Badge>
       ),
       className: "text-center"
     },
@@ -85,12 +86,12 @@ const GroupListPage = ({ groups, pageSizeOptions = [10] }) => {
       )
     }
   ];
-  function getStatusClass(status) {
-    const statusMap = {
-      InActive: "danger",
-      Active: "success"
-    };
-    return `text-${statusMap[status]}`;
+  function getBadgeTheme(status) {
+    if (status === "Active") {
+      return "primary";
+    } else {
+      return "warning";
+    }
   }
   function handlePageSizeChange(e) {
     setPageSize(e.target.value);

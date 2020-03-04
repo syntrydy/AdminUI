@@ -95,7 +95,7 @@ const PassportListPage = ({ providers, pageSizeOptions = [10] }) => {
 
   function getBadgeTheme(status) {
     if (status === "Active") {
-      return "success";
+      return "primary";
     } else {
       return "danger";
     }

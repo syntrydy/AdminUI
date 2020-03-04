@@ -14,7 +14,8 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  FormInput
+  FormInput,
+  Badge
 } from "shards-react";
 import PageTitle from "../../components/common/PageTitle";
 import getGroupsData from "../../data/scopes-data";
@@ -62,9 +63,9 @@ const OpenIdScopeListPage = () => {
       accessor: "isDynamic",
       maxWidth: 100,
       Cell: row => (
-        <span className={getStatusClass(row.original.isDynamic)}>
+        <Badge theme={getBadgeTheme(row.original.isDynamic)}>
           {row.original.isDynamic}
-        </span>
+        </Badge>
       ),
       className: "text-center"
     },
@@ -93,12 +94,12 @@ const OpenIdScopeListPage = () => {
       )
     }
   ];
-  function getStatusClass(status) {
-    const statusMap = {
-      true: "success",
-      false: "info"
-    };
-    return `text-${statusMap[status]}`;
+  function getBadgeTheme(status) {
+    if (status === "true") {
+      return "primary";
+    } else {
+      return "warning";
+    }
   }
   function handlePageSizeChange(e) {
     this.setState({
